@@ -1,6 +1,7 @@
 //twenny
 
 var path = require('path');
+var find = require('find');  //was specified for route, but not in registry.
 var http = require('http');
 var express = require('express');
 var cookieParser = require('cookie-parser')
@@ -24,8 +25,12 @@ app.use(express.static(path.join(__dirname + '/public')));
 var server = http.createServer(app); // start an HTTP server
 server.listen(process.env.PORT || 3000);
 
+module.exports = {
+    app: app,
+};
 
 //routes
-app.get('/', function (req, res) {
-	res.send('twenny');
+require('./routes/style');
+find.fileSync('route.js', __dirname + '/views').forEach(function (route_file) {  //-     /\.js$/
+    require(route_file);
 });
