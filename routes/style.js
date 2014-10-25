@@ -14,7 +14,7 @@ var render_sass = function(callback) {
     		callback(css);
     	},
     	error: function(err) {
-    		console.log("ERROR COMPILING SASS");
+    		console.log("ERROR COMPILING CSS");
     		console.log(err);
     	}
   	});

@@ -10,6 +10,22 @@ var session = require('express-session')
 var app = express();           // start Express framework
 
 var main_middleware = function main_middleware (req, res, next) {
+	var body_classes = [];
+	//check client
+	var ua = req.headers['user-agent'];
+    if (/mobile/i.test(ua)) {
+    	body_classes.push('mobile');
+    } else {
+        body_classes.push('desktop');
+    }
+    if (/iPhone OS/i.test(ua)) {
+        body_classes.push('iphone');
+    } else if (/Nexus 5/i.test(ua)) {
+        body_classes.push('nexus-5');
+    } else if (/Nexus 4/i.test(ua)) {
+        body_classes.push('nexus-4');
+    }
+    res.locals.body_classes = body_classes.join(' ');
     next();
 }
 

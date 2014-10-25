@@ -1,3 +1,5 @@
+$break-second: 768px;
+
 $link-hover-color: #39F;
 $link-color: #2c529d;
 
@@ -26,11 +28,22 @@ $body-copy-color: #333332;
 	@include border-box;
 }
 
-html {
+.desktop_only {
+	display: none;
+}
+.mobile_only {
+	display: none;
 }
 
+html {
+	width: 100%;
+	height: 100%;
+}
 body {
 	@include bodyfont;
+	color: $body-copy-color;
+
+	@import 'responsive';
 }
 h3 {
 	
@@ -39,8 +52,70 @@ h4 {
 	
 }
 a {
+	text-decoration: none;
+	color: $link-color;
+	&:hover {
+		color: $link-hover-color;
+	}
 }
 b {
+	font-weight: 600;
 }
 i {
+	font-style: italic;
+}
+
+
+.desktop {
+	font-size: 22px;
+	line-height: 1.4;
+	
+	.desktop_only {
+		display: block;
+	}
+
+	h1 {
+		font-size: 40px;
+		font-weight: 700;
+	}
+
+	.jumbotron {
+		width: 700px;
+		margin: 0 auto;
+		margin-top: 45px;
+		background: #F9F9F9;
+		padding: 45px 30px;
+
+		h1 {
+			text-align: center;
+			margin-bottom: 35px;
+		}
+		p {
+
+		}
+	}
+}
+
+.mobile {
+
+	.mobile_only {
+		display: block;
+	}
+
+	.supercontainer {
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+
+	h1 {
+		
+	}
+
+	.welcome {
+		h1 {
+			text-align: center;
+		}
+	}
+
+
 }
