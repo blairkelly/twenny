@@ -12,6 +12,10 @@ var render_sass = function(callback) {
     	file: css_scss_file_path,
     	success: function(css) {
     		callback(css);
+    	},
+    	error: function(err) {
+    		console.log("ERROR COMPILING SASS");
+    		console.log(err);
     	}
   	});
 }
