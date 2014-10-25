@@ -32,6 +32,6 @@ watch(css_scss_dir_path, function (filename) {
 	compile_and_save_css();
 });
 
-app.get('/styles/style.css', function (req, res) {
-	res.sendfile(compiled_css_filepath);  	
-});
+//app.get('/styles/style.css', function (req, res) {
+//	res.sendfile(compiled_css_filepath);  	
+//});
