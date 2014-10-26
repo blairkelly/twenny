@@ -7,6 +7,8 @@ $common-color-1: #151515;
 $common-color-2: #272727;
 $body-copy-color: #333332;
 
+@import 'mixins';
+
 @mixin bodyfont {
 	font-family: 'Open Sans' !important;
 	font-style: normal;
@@ -32,6 +34,9 @@ $body-copy-color: #333332;
 	display: none;
 }
 .mobile_only {
+	display: none;
+}
+.nolandscape {
 	display: none;
 }
 
@@ -112,10 +117,50 @@ i {
 	}
 
 	.welcome {
+		margin: 0 auto;
+		background-color: #F5F5F5;
+		@include border-radius(4px);
+
 		h1 {
 			text-align: center;
 		}
 	}
 
 
+}
+
+.button {
+	cursor: pointer;
+	background: grey;
+	color: #fff;
+	padding: 15px 35px;
+	display: inline-block;
+	@include border-radius(10px);
+	@include basic-transition( opacity 0.150s );
+
+	&:hover {
+		opacity: 0.88;		
+	}
+
+	&.approve, &.ok {
+		background-color: rgb(0, 109, 204);
+		background-image: linear-gradient(rgb(0, 136, 204), rgb(0, 68, 204));
+		&:active {
+			background-image: linear-gradient(rgb(0, 68, 204), rgb(0, 136, 204));
+		}
+	}
+	&.delete {
+		background-color: rgb(54, 54, 54);
+		background-image: linear-gradient(rgb(68, 68, 68), rgb(34, 34, 34));
+		&:active {
+			background-image: linear-gradient(rgb(34, 34, 34), rgb(68, 68, 68));
+		}
+	}
+	&.disapprove {
+		background-color: rgb(250, 167, 50);
+		background-image: linear-gradient(rgb(251, 180, 80), rgb(248, 148, 6));
+		&:active {
+			background-image: linear-gradient(rgb(248, 148, 6), rgb(251, 180, 80));
+		}
+	}
 }

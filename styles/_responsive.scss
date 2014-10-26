@@ -11,11 +11,13 @@
 		font-size: 90px;		
 	}
 
+	.container.intro {
+		padding-top: 100px;
+	}
 
 	.welcome {
-		margin-top: 45px;
-		padding: 60px 15px 60px 15px;
-		background-color: #F9F9F9;
+		padding: 60px 30px 60px 30px;
+		max-width: 86%;
 
 		h1 {
 			margin-bottom: 45px;
@@ -23,8 +25,39 @@
 		p {
 			font-family: Arial;
 		}
+		.sharebutton_holder {
+			text-align: center;
+		}
 		.share_location {
 			margin-top: 50px;
+			font-size: 42px;
+			font-weight: 400;
+			padding: 30px 45px;
+		}
+	}
+}
+
+@media screen and (max-device-width: $break-second) and (orientation : landscape) {
+	.mobile_only, .desktop_only {
+		display: none !important;
+	}
+	.nolandscape {
+		display: block;
+		padding-top: 4%;
+
+		span {
+			display: block;
+			text-align: center;
+
+			&.sorry {
+				font-size: 3em;
+				font-weight: 700;
+			}
+			&.explanation {
+				padding-top: 0.8em;
+				font-weight: 400;
+				font-size: 1.0em;
+			}
 		}
 	}
 }
